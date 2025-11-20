@@ -26,6 +26,7 @@
           "settings": {
             "heading": "Buy online",
             "description": "Order online for delivery via courier to 45 States",
+            "link": "/product/ovo-vodka",
             "link_label": "ORDER NOW"
           }
         },
@@ -34,6 +35,7 @@
           "settings": {
             "heading": "Find us locally",
             "description": "Check out our interactive map to see bars and liquor stores",
+            "link": "/map",
             "link_label": "FIND NEAR YOU"
           }
         },
@@ -42,6 +44,7 @@
           "settings": {
             "heading": "Local delivery",
             "description": "Order from your sofa for delivery within the hour",
+            "link": "https://www.ubereats.com/product/b/de707b63-70cd-50d5-bbe8-4250cbd04acc",
             "link_label": "ORDER NOW"
           }
         }
