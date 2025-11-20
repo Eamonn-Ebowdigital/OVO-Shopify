@@ -1,0 +1,85 @@
+<section class="ovo-section ovo-section--dark">
+  <div class="ovo-page-width">
+    <div class="ovo-card-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link | default: '#' }}" class="ovo-card ovo-card--cta" style="display: block; text-decoration: none;">
+          {% if block.settings.image != blank %}
+            <div class="ovo-card__media" style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; margin-bottom: 1rem;">
+              <img src="{{ block.settings.image | img_url: '300x' }}" alt="{{ block.settings.heading | escape }}" style="width: 100%; height: auto; max-width: 120px; margin: 0 auto; display: block;">
+            </div>
+          {% endif %}
+          <div class="ovo-card__content">
+            {% if block.settings.kicker != blank %}
+              <div class="ovo-heading-sm" style="opacity: 0.8; margin-bottom: 0.5rem;">
+                {{ block.settings.kicker }}
+              </div>
+            {% endif %}
+            {% if block.settings.heading != blank %}
+              <h3 class="ovo-heading-lg" style="font-size: 1.3rem; margin: 0 0 0.75rem;">
+                {{ block.settings.heading }}
+              </h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="ovo-body" style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 1rem;">
+                {{ block.settings.description }}
+              </p>
+            {% endif %}
+            {% if block.settings.link_label != blank %}
+              <div class="ovo-button ovo-button--ghost" style="margin-top: auto; display: inline-block;">
+                {{ block.settings.link_label }}
+              </div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero – CTAs",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "cta",
+      "name": "CTA Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon/Image"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker (optional)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Learn more"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3
+}
+{% endschema %}
+
