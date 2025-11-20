@@ -1,0 +1,20 @@
+{% if settings.enable_age_gate %}
+  <div data-age-gate class="age-gate" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); color:#ffffff; z-index:50; display:flex; align-items:center; justify-content:center;">
+    <div class="ovo-page-width" style="max-width:480px; text-align:center;">
+      <div class="ovo-heading-lg" style="margin-bottom:1rem;">
+        {{ settings.age_gate_heading | default: "We do not mean to be rude, but are you over the legal drinking age?" }}
+      </div>
+      <p class="ovo-body" style="margin:0 auto 1.8rem;">
+        {{ settings.age_gate_body | default: "You must be of legal drinking age in your country to enter this site." }}
+      </p>
+      <div>
+        <a href="https://www.responsibility.org/" class="ovo-button ovo-button--ghost" style="margin-right:0.75rem;">
+          {{ settings.age_gate_no_label | default: "No" }}
+        </a>
+        <button data-age-yes class="ovo-button">
+          {{ settings.age_gate_yes_label | default: "Yes" }}
+        </button>
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_age_gate",
+        "label": "Enable age gate",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "age_gate_heading",
+        "label": "Age gate heading"
+      },
+      {
+        "type": "textarea",
+        "id": "age_gate_body",
+        "label": "Age gate body"
+      },
+      {
+        "type": "text",
+        "id": "age_gate_yes_label",
+        "label": "Age gate yes label"
+      },
+      {
+        "type": "text",
+        "id": "age_gate_no_label",
+        "label": "Age gate no label"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      }
+    ]
+  }
+]

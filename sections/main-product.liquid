@@ -1,0 +1,76 @@
+<section class="ovo-section">
+  <div class="ovo-page-width ovo-flex ovo-flex--center">
+    <div class="ovo-flex__item">
+      {% if product.media.size > 0 %}
+        {% for media in product.media %}
+          {% if forloop.first %}
+            {{ media | media_tag: image_size: "800x" }}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="ovo-flex__item">
+      <div class="ovo-heading-sm">{{ product.vendor }}</div>
+      <h1 class="ovo-heading-lg" style="margin-top:0.6rem;">
+        {{ product.title }}
+      </h1>
+      {% if product.metafields.custom.tagline != blank %}
+        <p class="ovo-body" style="margin-top:0.8rem;">
+          {{ product.metafields.custom.tagline }}
+        </p>
+      {% endif %}
+
+      <div style="margin-top:1.2rem; font-size:1.4rem; font-weight:600;">
+        {{ product.price | money }}
+      </div>
+
+      <div class="ovo-badge-row">
+        <span class="ovo-badge">Gluten free</span>
+        <span class="ovo-badge">Six times distilled</span>
+        <span class="ovo-badge">American corn</span>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        {% form 'product', product, class: 'ovo-form' %}
+          {% if product.has_only_default_variant == false %}
+            <div class="ovo-form__field">
+              <label for="product-select-{{ section.id }}">Choose option</label>
+              <select id="product-select-{{ section.id }}" name="id">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}">
+                    {{ variant.title }} – {{ variant.price | money }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          {% endif %}
+          <button type="submit" class="ovo-button">
+            {{ section.settings.add_to_cart_label }}
+          </button>
+        {% endform %}
+      </div>
+
+      {% if product.description != blank %}
+        <div class="ovo-body" style="margin-top:1.8rem;">
+          {{ product.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product – main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "Add to cart label",
+      "default": "Add to cart"
+    }
+  ]
+}
+{% endschema %}

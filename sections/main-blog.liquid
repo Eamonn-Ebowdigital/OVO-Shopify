@@ -1,0 +1,37 @@
+<section class="ovo-section">
+  <div class="ovo-page-width">
+    <h1 class="ovo-heading-lg">{{ blog.title }}</h1>
+    {% if blog.description != blank %}
+      <div class="ovo-body" style="margin-top:1rem;">
+        {{ blog.description }}
+      </div>
+    {% endif %}
+
+    <div class="ovo-blog-grid" style="margin-top:2rem;">
+      {% paginate blog.articles by 12 %}
+        {% for article in blog.articles %}
+          {% render 'blog-card', article: article %}
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          <nav role="navigation" style="margin-top:2rem; font-size:0.9rem;">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}">Previous</a>
+            {% endif %}
+            <span style="margin:0 0.75rem;">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}">Next</a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog – main",
+  "settings": {}
+}
+{% endschema %}

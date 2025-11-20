@@ -1,0 +1,70 @@
+<section class="ovo-section">
+  <div class="ovo-page-width ovo-flex ovo-flex--center">
+    <div class="ovo-flex__item">
+      <div class="ovo-heading-sm">{{ section.settings.kicker }}</div>
+      <h1 class="ovo-heading-lg" style="margin-top:0.6rem;">
+        {{ section.settings.heading | default: page.title }}
+      </h1>
+      <div class="ovo-body" style="margin-top:1rem;">
+        {{ section.settings.body }}
+      </div>
+    </div>
+    <div class="ovo-flex__item">
+      {% form 'contact', class: 'ovo-form' %}
+        {% if form.posted_successfully? %}
+          <p>Thanks for reaching out. We will be in touch.</p>
+        {% endif %}
+
+        <div class="ovo-form__field">
+          <label for="ContactName">Name</label>
+          <input id="ContactName" type="text" name="contact[name]" required>
+        </div>
+
+        <div class="ovo-form__field">
+          <label for="ContactEmail">Email</label>
+          <input id="ContactEmail" type="email" name="contact[email]" required>
+        </div>
+
+        <div class="ovo-form__field">
+          <label for="ContactMessage">Message</label>
+          <textarea id="ContactMessage" name="contact[body]" required></textarea>
+        </div>
+
+        <button class="ovo-button" type="submit">
+          {{ section.settings.button_label }}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact – main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Let us keep in touch"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Got a question for the OVO team?"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Intro text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send message"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,97 @@
+<footer class="ovo-footer" role="contentinfo">
+  <div class="ovo-page-width ovo-footer__columns">
+    <div>
+      <div class="ovo-heading-sm">Cheers to vodka without compromise</div>
+      <p style="max-width:22rem; font-size:0.9rem; opacity:0.9;">
+        {{ section.settings.tagline | default: "OVO Vodka is crafted for clean cocktails and cleaner oceans." }}
+      </p>
+      <div class="ovo-social-row">
+        {% if settings.social_instagram != blank %}
+          <a href="{{ settings.social_instagram }}" aria-label="Instagram">IG</a>
+        {% endif %}
+        {% if settings.social_facebook != blank %}
+          <a href="{{ settings.social_facebook }}" aria-label="Facebook">FB</a>
+        {% endif %}
+        {% if settings.social_tiktok != blank %}
+          <a href="{{ settings.social_tiktok }}" aria-label="TikTok">TT</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div>
+      <div class="ovo-footer__heading">Explore</div>
+      <div class="ovo-footer__nav">
+        {% for link in section.settings.footer_menu_primary.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div>
+      <div class="ovo-footer__heading">More</div>
+      <div class="ovo-footer__nav">
+        {% for link in section.settings.footer_menu_secondary.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div>
+      <div class="ovo-footer__heading">Stay in touch</div>
+      {% form 'customer', class: 'ovo-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="ovo-form__field">
+          <label for="NewsletterEmail">Email</label>
+          <input id="NewsletterEmail" type="email" name="contact[email]" required>
+        </div>
+        <button class="ovo-button" type="submit">
+          {{ section.settings.newsletter_button_label }}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="ovo-page-width" style="margin-top:2rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:1rem; font-size:0.78rem; display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:space-between; opacity:0.8;">
+    <div>
+      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+    </div>
+    <div>
+      {{ section.settings.footer_legal | escape }}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_primary",
+      "label": "Primary footer menu"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_secondary",
+      "label": "Secondary footer menu"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_label",
+      "label": "Newsletter button label",
+      "default": "Join newsletter"
+    },
+    {
+      "type": "text",
+      "id": "footer_legal",
+      "label": "Legal line",
+      "default": "OVO Vodka, 40% Alc./Vol."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,76 @@
+<section class="ovo-section ovo-section--cream">
+  <div class="ovo-page-width">
+    <div class="ovo-flex ovo-flex--center">
+      <div class="ovo-flex__item">
+        <div class="ovo-heading-sm">{{ section.settings.kicker }}</div>
+        <h2 class="ovo-heading-lg" style="margin-top:0.6rem;">
+          {{ section.settings.heading }}
+        </h2>
+        <p class="ovo-body" style="margin-top:0.9rem;">
+          {{ section.settings.body }}
+        </p>
+        {% if section.settings.uber_eats_link != blank %}
+          <div style="margin-top:1.5rem;">
+            <a href="{{ section.settings.uber_eats_link }}" class="ovo-button">
+              {{ section.settings.uber_eats_label }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      <div class="ovo-flex__item">
+        {% if section.settings.embed_code != blank %}
+          <div style="border-radius:24px; overflow:hidden; background:#ffffff;">
+            {{ section.settings.embed_code }}
+          </div>
+        {% else %}
+          <div style="padding:2rem; background:#ffffff; border-radius:24px; border:1px solid rgba(0,0,0,0.06);">
+            <p style="margin-top:0; font-size:0.95rem;">
+              Add your store locator embed script in this section settings. Until then, this panel acts as a placeholder.
+            </p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Store locator – map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Find OVO near you"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Cocktails without compromise are closer than you think"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "html",
+      "id": "embed_code",
+      "label": "Map embed code or app snippet"
+    },
+    {
+      "type": "url",
+      "id": "uber_eats_link",
+      "label": "Local delivery link (Uber Eats or similar)"
+    },
+    {
+      "type": "text",
+      "id": "uber_eats_label",
+      "label": "Local delivery label",
+      "default": "Order local delivery"
+    }
+  ]
+}
+{% endschema %}

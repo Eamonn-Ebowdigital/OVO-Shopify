@@ -1,0 +1,18 @@
+<article class="ovo-blog-card">
+  {% if article.image %}
+    <a href="{{ article.url }}">
+      <img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.title | escape }}">
+    </a>
+  {% endif %}
+  <div class="ovo-blog-card__meta">
+    {{ article.published_at | date: '%b %d, %Y' }}
+  </div>
+  <h3 class="ovo-blog-card__title">
+    <a href="{{ article.url }}">{{ article.title }}</a>
+  </h3>
+  {% if article.excerpt != blank %}
+    <p class="ovo-blog-card__excerpt">
+      {{ article.excerpt | strip_html | truncate: 100 }}
+    </p>
+  {% endif %}
+</article>

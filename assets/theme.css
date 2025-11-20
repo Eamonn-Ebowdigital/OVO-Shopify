@@ -1,0 +1,345 @@
+:root {
+  --ovo-teal: #00aca4;
+  --ovo-navy: #001522;
+  --ovo-coral: #ff6f61;
+  --ovo-cream: #f7f3ea;
+  --ovo-text: #1a1a1a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ovo-text);
+  background-color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.ovo-page-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ovo-section {
+  padding: 3.5rem 0;
+}
+
+.ovo-section--dark {
+  background: radial-gradient(circle at top left, #013043, var(--ovo-navy));
+  color: #ffffff;
+}
+
+.ovo-section--cream {
+  background: var(--ovo-cream);
+}
+
+.ovo-heading-xl {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ovo-heading-lg {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ovo-heading-sm {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ovo-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+.ovo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background: var(--ovo-coral);
+  color: #ffffff;
+}
+
+.ovo-button--ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: inherit;
+}
+
+.ovo-button + .ovo-button {
+  margin-left: 0.75rem;
+}
+
+.ovo-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.ovo-flex--center {
+  align-items: center;
+}
+
+.ovo-flex__item {
+  flex: 1 1 280px;
+}
+
+.ovo-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+}
+
+.ovo-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ovo-card__media img {
+  width: 100%;
+  display: block;
+}
+
+.ovo-card__content {
+  padding: 1.5rem;
+}
+
+.ovo-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+}
+
+.ovo-pill {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.ovo-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ovo-badge {
+  background: rgba(0,0,0,0.03);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+.ovo-product-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.ovo-spec {
+  font-size: 0.85rem;
+}
+
+.ovo-spec__label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-bottom: 0.25rem;
+}
+
+.ovo-spec__value {
+  font-size: 0.95rem;
+}
+
+.ovo-kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.ovo-kpi {
+  min-width: 150px;
+}
+
+.ovo-kpi__value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.ovo-kpi__label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.ovo-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.ovo-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.ovo-blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ovo-blog-card__meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.ovo-blog-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.ovo-blog-card__excerpt {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.4rem;
+}
+
+.ovo-form {
+  max-width: 520px;
+}
+
+.ovo-form__field {
+  margin-bottom: 1rem;
+}
+
+.ovo-form__field label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.25rem;
+}
+
+.ovo-form__field input,
+.ovo-form__field textarea,
+.ovo-form__field select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  font: inherit;
+}
+
+.ovo-form__field textarea {
+  border-radius: 18px;
+  min-height: 140px;
+  resize: vertical;
+}
+
+.ovo-footer {
+  padding: 3rem 0 2rem;
+  background: #010b11;
+  color: rgba(255,255,255,0.84);
+}
+
+.ovo-footer__columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 2rem;
+}
+
+.ovo-footer__heading {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.9rem;
+}
+
+.ovo-footer__nav a {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.85;
+}
+
+.ovo-footer__nav a:hover {
+  opacity: 1;
+}
+
+.ovo-social-row {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.ovo-social-row a {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .ovo-footer__columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ovo-footer__columns {
+    grid-template-columns: 1fr;
+  }
+}

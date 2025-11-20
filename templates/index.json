@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "age_gate": {
+      "type": "age-gate-wrapper",
+      "settings": {}
+    },
+    "hero": {
+      "type": "hero-banner",
+      "settings": {}
+    },
+    "story": {
+      "type": "text-with-media",
+      "settings": {}
+    },
+    "impact": {
+      "type": "sustainability-kpis",
+      "settings": {}
+    },
+    "cocktails": {
+      "type": "cocktails-teaser-grid",
+      "settings": {}
+    },
+    "blog": {
+      "type": "blog-teaser-grid",
+      "settings": {}
+    },
+    "store_locator": {
+      "type": "store-locator",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "impact",
+    "cocktails",
+    "blog",
+    "store_locator"
+  ]
+}

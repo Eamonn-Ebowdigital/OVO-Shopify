@@ -1,0 +1,86 @@
+{% comment %}
+  Simple header with logo, navigation and optional Buy Online button.
+{% endcomment %}
+
+<header class="ovo-section ovo-section--dark" role="banner">
+  <div class="ovo-page-width ovo-flex ovo-flex--center" style="align-items: center; justify-content: space-between; gap: 1.5rem;">
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      {% if section.settings.logo != blank %}
+        <a href="{{ routes.root_url }}">
+          <img src="{{ section.settings.logo | img_url: '200x' }}" alt="{{ shop.name | escape }}" style="height:48px; width:auto;">
+        </a>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="ovo-heading-sm">{{ shop.name }}</a>
+      {% endif %}
+    </div>
+
+    <nav class="header__nav" role="navigation">
+      <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em;">
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      {% if section.settings.buy_online_link != blank %}
+        <a href="{{ section.settings.buy_online_link }}" class="ovo-button">
+          {{ section.settings.buy_online_label }}
+        </a>
+      {% endif %}
+      {% if section.settings.find_near_you_link != blank %}
+        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost">
+          {{ section.settings.find_near_you_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "url",
+      "id": "buy_online_link",
+      "label": "Buy online link"
+    },
+    {
+      "type": "text",
+      "id": "buy_online_label",
+      "label": "Buy online label",
+      "default": "Buy online"
+    },
+    {
+      "type": "url",
+      "id": "find_near_you_link",
+      "label": "Find near you link"
+    },
+    {
+      "type": "text",
+      "id": "find_near_you_label",
+      "label": "Find near you label",
+      "default": "Find near you"
+    }
+  ],
+  "blocks": [],
+  "max_blocks": 0,
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

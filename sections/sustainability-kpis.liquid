@@ -1,0 +1,79 @@
+<section class="ovo-section ovo-section--cream">
+  <div class="ovo-page-width">
+    <div class="ovo-flex ovo-flex--center">
+      <div class="ovo-flex__item">
+        <div class="ovo-heading-sm">{{ section.settings.kicker }}</div>
+        <h2 class="ovo-heading-lg" style="margin-top:0.6rem;">
+          {{ section.settings.heading }}
+        </h2>
+        <p class="ovo-body" style="margin-top:0.9rem;">
+          {{ section.settings.body }}
+        </p>
+        <div class="ovo-kpi-row">
+          {% for block in section.blocks %}
+            <div class="ovo-kpi">
+              <div class="ovo-kpi__value">{{ block.settings.value }}</div>
+              <div class="ovo-kpi__label">{{ block.settings.label }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="ovo-flex__item">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" style="width:100%; max-width:420px;">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Impact – KPIs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Every bottle makes a difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your cocktails fund real ocean clean up"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Impact illustration"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kpi",
+      "name": "Impact metric",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "85+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Plastic bottles removed per bottle"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3
+}
+{% endschema %}

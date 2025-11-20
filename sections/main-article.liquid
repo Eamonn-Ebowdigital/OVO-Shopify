@@ -1,0 +1,68 @@
+<section class="ovo-section">
+  <div class="ovo-page-width">
+    <header>
+      <div class="ovo-meta-row">
+        <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+        {% for tag in article.tags %}
+          <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <h1 class="ovo-heading-lg">{{ article.title }}</h1>
+      {% if article.excerpt != blank %}
+        <p class="ovo-body" style="margin-top:1rem;">
+          {{ article.excerpt }}
+        </p>
+      {% endif %}
+    </header>
+
+    {% assign cocktail_meta = article.metafields.custom.cocktail %}
+
+    {% if cocktail_meta != blank %}
+      <section style="margin-top:2rem; padding:1.5rem 1.75rem; border-radius:24px; background:var(--ovo-cream);">
+        <div class="ovo-heading-sm">Cocktail recipe</div>
+        <h2 style="margin:0.5rem 0 0.75rem; font-size:1.4rem;">
+          {{ cocktail_meta.title }}
+        </h2>
+        <div class="ovo-pill-row">
+          {% if cocktail_meta.difficulty != blank %}
+            <span class="ovo-pill">{{ cocktail_meta.difficulty }}</span>
+          {% endif %}
+          {% if cocktail_meta.serve_style != blank %}
+            <span class="ovo-pill">{{ cocktail_meta.serve_style }}</span>
+          {% endif %}
+          {% if cocktail_meta.glass != blank %}
+            <span class="ovo-pill">{{ cocktail_meta.glass }}</span>
+          {% endif %}
+        </div>
+
+        <div class="ovo-flex" style="margin-top:1.5rem;">
+          <div class="ovo-flex__item">
+            <h3 class="ovo-heading-sm">Ingredients</h3>
+            <ul style="padding-left:1.1rem; margin-top:0.6rem;">
+              {% for ingredient in cocktail_meta.ingredients.value %}
+                <li style="font-size:0.95rem;">{{ ingredient }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="ovo-flex__item">
+            <h3 class="ovo-heading-sm">Method</h3>
+            <div class="ovo-body" style="margin-top:0.6rem;">
+              {{ cocktail_meta.method }}
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    <article class="ovo-body" style="margin-top:2rem;">
+      {{ article.content }}
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Article – main",
+  "settings": {}
+}
+{% endschema %}

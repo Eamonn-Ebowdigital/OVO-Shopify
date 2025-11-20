@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "story_top": {
+      "type": "text-with-media",
+      "settings": {}
+    },
+    "impact": {
+      "type": "sustainability-kpis",
+      "settings": {}
+    }
+  },
+  "order": [
+    "story_top",
+    "impact"
+  ]
+}

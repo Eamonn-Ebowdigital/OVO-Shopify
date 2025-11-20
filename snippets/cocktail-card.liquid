@@ -1,0 +1,33 @@
+{%- comment -%}
+  Expects a 'cocktail' metaobject reference in variable 'cocktail'.
+{%- endcomment -%}
+{% if cocktail != blank %}
+  <article class="ovo-card">
+    {% if cocktail.image != blank %}
+      <a class="ovo-card__media" href="{{ cocktail.url | default: '#' }}">
+        <img src="{{ cocktail.image | image_url: width: 800 }}" alt="{{ cocktail.title | escape }}">
+      </a>
+    {% endif %}
+    <div class="ovo-card__content">
+      <div class="ovo-heading-sm" style="opacity:0.8;">
+        {{ cocktail.category | default: cocktail.style }}
+      </div>
+      <h3 style="margin:0.5rem 0 0.25rem; font-size:1.2rem;">
+        <a href="{{ cocktail.url | default: '#' }}">{{ cocktail.title }}</a>
+      </h3>
+      {% if cocktail.tagline != blank %}
+        <p style="font-size:0.9rem; opacity:0.9; margin:0.3rem 0 0.8rem;">
+          {{ cocktail.tagline }}
+        </p>
+      {% endif %}
+      <div class="ovo-pill-row">
+        {% if cocktail.difficulty != blank %}
+          <span class="ovo-pill">{{ cocktail.difficulty }}</span>
+        {% endif %}
+        {% if cocktail.serve_style != blank %}
+          <span class="ovo-pill">{{ cocktail.serve_style }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+{% endif %}

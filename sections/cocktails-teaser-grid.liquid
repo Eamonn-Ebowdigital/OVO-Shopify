@@ -1,0 +1,72 @@
+<section class="ovo-section">
+  <div class="ovo-page-width">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; margin-bottom:1.75rem;">
+      <div>
+        <div class="ovo-heading-sm">{{ section.settings.kicker }}</div>
+        <h2 class="ovo-heading-lg" style="margin-top:0.5rem;">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+      {% if section.settings.view_all_link != blank %}
+        <a href="{{ section.settings.view_all_link }}" class="ovo-heading-sm" style="font-size:0.8rem;">
+          {{ section.settings.view_all_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="ovo-card-grid">
+      {% for block in section.blocks %}
+        {% assign cocktail_ref = block.settings.cocktail %}
+        {% if cocktail_ref != blank %}
+          {% render 'cocktail-card', cocktail: cocktail_ref %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Signature cocktails – teaser grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Signature cocktails"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Try OVO in these clean classics"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all cocktails link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all cocktails label",
+      "default": "View all cocktails"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cocktail",
+      "name": "Cocktail",
+      "settings": [
+        {
+          "type": "metaobject",
+          "id": "cocktail",
+          "label": "Cocktail metaobject",
+          "metaobject_type": "cocktail"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8
+}
+{% endschema %}
