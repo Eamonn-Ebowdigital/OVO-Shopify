@@ -17,6 +17,41 @@
       "type": "hero-banner",
       "settings": {}
     },
+    "hero_ctas": {
+      "type": "hero-ctas",
+      "settings": {},
+      "blocks": {
+        "cta_1": {
+          "type": "cta",
+          "settings": {
+            "heading": "Buy online",
+            "description": "Order online for delivery via courier to 45 States",
+            "link_label": "ORDER NOW"
+          }
+        },
+        "cta_2": {
+          "type": "cta",
+          "settings": {
+            "heading": "Find us locally",
+            "description": "Check out our interactive map to see bars and liquor stores",
+            "link_label": "FIND NEAR YOU"
+          }
+        },
+        "cta_3": {
+          "type": "cta",
+          "settings": {
+            "heading": "Local delivery",
+            "description": "Order from your sofa for delivery within the hour",
+            "link_label": "ORDER NOW"
+          }
+        }
+      },
+      "block_order": [
+        "cta_1",
+        "cta_2",
+        "cta_3"
+      ]
+    },
     "story": {
       "type": "text-with-media",
       "settings": {}
@@ -27,6 +62,10 @@
     },
     "cocktails": {
       "type": "cocktails-teaser-grid",
+      "settings": {}
+    },
+    "partnership": {
+      "type": "partnership",
       "settings": {}
     },
     "blog": {
@@ -41,9 +80,11 @@
   "order": [
     "age_gate",
     "hero",
+    "hero_ctas",
     "story",
     "impact",
     "cocktails",
+    "partnership",
     "blog",
     "store_locator"
   ]
