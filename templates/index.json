@@ -16,6 +16,15 @@
     "hero": {
       "type": "hero-banner",
       "blocks": {
+        "testimonial_VYBmfK": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify://shop_images/usewire-logo-min.png",
+            "quote": "“Vodka’s Revival: Cheers to OVO and oceans without plasticity”",
+            "body": "",
+            "byline": ""
+          }
+        },
         "cta_button_LkFtLR": {
           "type": "cta_button",
           "settings": {
@@ -42,6 +51,7 @@
         }
       },
       "block_order": [
+        "testimonial_VYBmfK",
         "cta_button_LkFtLR",
         "cta_button_WcVdKq",
         "cta_button_mhtCnp"
