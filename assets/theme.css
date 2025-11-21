@@ -370,9 +370,19 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
+.ovo-hero__testimonial-link {
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.ovo-hero__testimonial-link:hover {
+  opacity: 0.95;
+}
+
 .ovo-hero__cta {
   padding: 0.85rem 2rem;
-  border-radius: 999px;
+  border-radius: 8px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
