@@ -1,47 +1,103 @@
 {% comment %}
-  Simple header with logo, navigation and optional Buy Online button.
+  Header with logo, navigation and optional Buy Online button.
 {% endcomment %}
 
-<header class="ovo-section ovo-section--dark" role="banner">
-  <div class="ovo-page-width ovo-flex ovo-flex--center" style="align-items: center; justify-content: space-between; gap: 1.5rem;">
+<header class="ovo-header" role="banner" style="position: sticky; top: 0; z-index: 100; background: rgba(1, 21, 34, 0.95); backdrop-filter: blur(10px); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+  <div class="ovo-page-width" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;">
     <div style="display:flex; align-items:center; gap:0.75rem;">
       {% if section.settings.logo != blank %}
         <a href="{{ routes.root_url }}">
           <img src="{{ section.settings.logo | img_url: '200x' }}" alt="{{ shop.name | escape }}" style="height:48px; width:auto;">
         </a>
       {% else %}
-        <a href="{{ routes.root_url }}" class="ovo-heading-sm">{{ shop.name }}</a>
+        <a href="{{ routes.root_url }}" class="ovo-heading-sm" style="color: #ffffff;">{{ shop.name }}</a>
       {% endif %}
     </div>
 
-    <nav class="header__nav" role="navigation">
-      <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em;">
-        {% for link in section.settings.menu.links %}
-          <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        {% endfor %}
+    <nav class="header__nav" role="navigation" style="display: none;">
+      <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em; color: #ffffff;">
+        {% if section.settings.menu != blank %}
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}" style="color: inherit;">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li><a href="/" style="color: inherit;">Home</a></li>
+          <li><a href="/about" style="color: inherit;">About</a></li>
+          <li><a href="/cocktails" style="color: inherit;">Cocktails</a></li>
+          <li><a href="/news" style="color: inherit;">News</a></li>
+          <li><a href="/contact" style="color: inherit;">Contact</a></li>
+        {% endif %}
       </ul>
     </nav>
 
     <div style="display:flex; align-items:center; gap:0.75rem;">
       {% if section.settings.buy_online_link != blank %}
-        <a href="{{ section.settings.buy_online_link }}" class="ovo-button">
+        <a href="{{ section.settings.buy_online_link }}" class="ovo-button" style="display: none;">
           {{ section.settings.buy_online_label }}
         </a>
       {% endif %}
       {% if section.settings.find_near_you_link != blank %}
-        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost">
+        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost" style="display: none;">
           {{ section.settings.find_near_you_label }}
         </a>
       {% endif %}
+      
+      {% comment %} Mobile menu button {% endcomment %}
+      <button class="header__menu-toggle" aria-label="Toggle menu" style="display: none; background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer;">
+        ☰
+      </button>
     </div>
   </div>
+  
+  {% comment %} Mobile menu {% endcomment %}
+  <nav class="header__mobile-nav" role="navigation" style="display: none; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction: column; gap:1rem;">
+      {% if section.settings.menu != blank %}
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}" style="color: #ffffff; text-transform:uppercase; letter-spacing:0.16em;">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </nav>
 </header>
+
+<style>
+  @media (min-width: 768px) {
+    .header__nav { display: flex !important; }
+    .header__mobile-nav { display: none !important; }
+    .header__menu-toggle { display: none !important; }
+    .ovo-header .ovo-button { display: inline-flex !important; }
+  }
+  
+  @media (max-width: 767px) {
+    .header__menu-toggle { display: block !important; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const mobileNav = document.querySelector('.header__mobile-nav');
+    
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener('click', function() {
+        const isOpen = mobileNav.style.display === 'block';
+        mobileNav.style.display = isOpen ? 'none' : 'block';
+        menuToggle.textContent = isOpen ? '☰' : '✕';
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
   "name": "Header",
+  "tag": "header",
+  "class": "section-header",
   "settings": [
     {
       "type": "image_picker",

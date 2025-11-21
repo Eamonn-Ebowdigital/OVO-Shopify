@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: {% if settings.body_font %}{{ settings.body_font.family }}, {{ settings.body_font.fallback_families }}{% else %}'Playfair Display', Georgia, serif{% endif %};
   color: var(--ovo-text);
   background-color: #ffffff;
 }
@@ -48,23 +48,33 @@ a:hover {
 }
 
 .ovo-heading-xl {
+  font-family: {% if settings.heading_font %}{{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }}{% else %}'Josefin Sans', sans-serif{% endif %};
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   line-height: 1.1;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .ovo-heading-lg {
+  font-family: {% if settings.heading_font %}{{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }}{% else %}'Josefin Sans', sans-serif{% endif %};
   font-size: clamp(1.8rem, 4vw, 2.4rem);
   line-height: 1.1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .ovo-heading-sm {
+  font-family: {% if settings.heading_font %}{{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }}{% else %}'Josefin Sans', sans-serif{% endif %};
   font-size: 0.9rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: {% if settings.heading_font %}{{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }}{% else %}'Josefin Sans', sans-serif{% endif %};
 }
 
 .ovo-body {
@@ -341,5 +351,63 @@ a:hover {
 @media (max-width: 600px) {
   .ovo-footer__columns {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Section Styles */
+.ovo-hero {
+  position: relative;
+}
+
+.ovo-hero__ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ovo-hero__cta {
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ovo-hero__cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .ovo-hero .ovo-page-width {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .ovo-hero__testimonial {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ovo-hero {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+  
+  .ovo-hero__ctas {
+    flex-direction: column;
+  }
+  
+  .ovo-hero__cta {
+    width: 100%;
   }
 }
