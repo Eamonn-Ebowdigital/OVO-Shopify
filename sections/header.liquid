@@ -2,7 +2,7 @@
   Header with logo, navigation and optional Buy Online button.
 {% endcomment %}
 
-<header class="ovo-header" role="banner" style="position: sticky; top: 0; z-index: 100; background: rgba(1, 21, 34, 0.95); backdrop-filter: blur(10px); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+<header class="ovo-header" role="banner" style="position: sticky; top: 0; z-index: 100; background: #ffffff; backdrop-filter: blur(10px); padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
   <div class="ovo-page-width" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;">
     <div style="display:flex; align-items:center; gap:0.75rem;">
       {% if section.settings.logo != blank %}
@@ -10,12 +10,12 @@
           <img src="{{ section.settings.logo | img_url: '200x' }}" alt="{{ shop.name | escape }}" style="height:48px; width:auto;">
         </a>
       {% else %}
-        <a href="{{ routes.root_url }}" class="ovo-heading-sm" style="color: #ffffff;">{{ shop.name }}</a>
+        <a href="{{ routes.root_url }}" class="ovo-heading-sm" style="color: var(--ovo-text);">{{ shop.name }}</a>
       {% endif %}
     </div>
 
     <nav class="header__nav" role="navigation">
-      <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em; color: #ffffff;">
+      <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em; color: var(--ovo-text); font-family: var(--heading-font-family, 'Josefin Sans', sans-serif);">
         {% if section.settings.menu != blank %}
           {% for link in section.settings.menu.links %}
             <li>
@@ -34,7 +34,7 @@
 
     <div style="display:flex; align-items:center; gap:1rem;">
       {% if section.settings.enable_search %}
-        <a href="{{ routes.search_url }}" class="header__search" aria-label="Search" style="color: #ffffff; font-size: 1.2rem; text-decoration: none;">
+        <a href="{{ routes.search_url }}" class="header__search" aria-label="Search" style="color: var(--ovo-text); font-size: 1.2rem; text-decoration: none;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;">
             <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +43,7 @@
       {% endif %}
 
       {% if section.settings.enable_cart %}
-        <a href="{{ routes.cart_url }}" class="header__cart" aria-label="Cart" style="color: #ffffff; font-size: 1.2rem; text-decoration: none; position: relative;">
+        <a href="{{ routes.cart_url }}" class="header__cart" aria-label="Cart" style="color: var(--ovo-text); font-size: 1.2rem; text-decoration: none; position: relative;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;">
             <path d="M5 5H17L16 12H6L5 5ZM5 5L4 2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="8" cy="17" r="1" fill="currentColor"/>
@@ -69,19 +69,19 @@
       {% endif %}
       
       {% comment %} Mobile menu button {% endcomment %}
-      <button class="header__menu-toggle" aria-label="Toggle menu" style="display: none; background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer;">
+      <button class="header__menu-toggle" aria-label="Toggle menu" style="display: none; background: none; border: none; color: var(--ovo-text); font-size: 1.5rem; cursor: pointer;">
         ☰
       </button>
     </div>
   </div>
   
   {% comment %} Mobile menu {% endcomment %}
-  <nav class="header__mobile-nav" role="navigation" style="display: none; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
+  <nav class="header__mobile-nav" role="navigation" style="display: none; padding: 1rem 0; border-top: 1px solid rgba(0,0,0,0.1); background: #ffffff;">
     <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction: column; gap:1rem;">
       {% if section.settings.menu != blank %}
         {% for link in section.settings.menu.links %}
           <li>
-            <a href="{{ link.url }}" style="color: #ffffff; text-transform:uppercase; letter-spacing:0.16em;">{{ link.title }}</a>
+            <a href="{{ link.url }}" style="color: var(--ovo-text); text-transform:uppercase; letter-spacing:0.16em; font-family: var(--heading-font-family, 'Josefin Sans', sans-serif);">{{ link.title }}</a>
           </li>
         {% endfor %}
       {% endif %}
