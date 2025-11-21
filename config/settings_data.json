@@ -8,7 +8,38 @@
  * ------------------------------------------------------------
  */
 {
-  "current": "Default",
+  "current": {
+    "order": [
+      "header",
+      "footer"
+    ],
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/OVO-Vodka-Logomark-Dark-min.png",
+          "menu": "main-menu",
+          "enable_search": true,
+          "enable_cart": true,
+          "buy_online_link": "",
+          "buy_online_label": "Buy online",
+          "find_near_you_link": "",
+          "find_near_you_label": "Find near you"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "",
+          "footer_menu_primary": "",
+          "footer_menu_secondary": "",
+          "newsletter_button_label": "Join newsletter",
+          "footer_legal": "OVO Vodka, 40% Alc./Vol."
+        }
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
     "Default": {
       "sections": {
