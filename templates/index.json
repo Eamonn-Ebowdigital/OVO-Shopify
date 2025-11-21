@@ -16,6 +16,22 @@
     "hero": {
       "type": "hero-banner",
       "blocks": {
+        "cta_button_LkFtLR": {
+          "type": "cta_button",
+          "settings": {
+            "label": "BUY ONLINE",
+            "link": "",
+            "style": "primary"
+          }
+        },
+        "cta_button_WcVdKq": {
+          "type": "cta_button",
+          "settings": {
+            "label": "BUY ONLINE",
+            "link": "",
+            "style": "primary"
+          }
+        },
         "cta_button_mhtCnp": {
           "type": "cta_button",
           "settings": {
@@ -26,6 +42,8 @@
         }
       },
       "block_order": [
+        "cta_button_LkFtLR",
+        "cta_button_WcVdKq",
         "cta_button_mhtCnp"
       ],
       "settings": {
