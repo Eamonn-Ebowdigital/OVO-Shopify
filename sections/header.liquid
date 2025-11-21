@@ -90,17 +90,35 @@
 </header>
 
 <style>
+  .header__search,
+  .header__cart {
+    transition: opacity 0.2s;
+  }
+  
+  .header__search:hover,
+  .header__cart:hover {
+    opacity: 0.8;
+  }
+
   @media (min-width: 768px) {
     .header__nav { display: flex !important; }
     .header__mobile-nav { display: none !important; }
     .header__menu-toggle { display: none !important; }
     .header__cta-button { display: inline-flex !important; }
+    .header__search,
+    .header__cart {
+      display: inline-block !important;
+    }
   }
   
   @media (max-width: 767px) {
     .header__nav { display: none !important; }
     .header__cta-button { display: none !important; }
     .header__menu-toggle { display: block !important; }
+    .header__search,
+    .header__cart {
+      display: inline-block !important;
+    }
   }
 </style>
 
