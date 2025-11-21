@@ -14,7 +14,7 @@
       {% endif %}
     </div>
 
-    <nav class="header__nav" role="navigation" style="display: flex;">
+    <nav class="header__nav" role="navigation">
       <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.16em; color: #ffffff;">
         {% if section.settings.menu != blank %}
           {% for link in section.settings.menu.links %}
@@ -34,13 +34,13 @@
 
     <div style="display:flex; align-items:center; gap:0.75rem;">
       {% if section.settings.buy_online_link != blank %}
-        <a href="{{ section.settings.buy_online_link }}" class="ovo-button" style="display: none;">
-          {{ section.settings.buy_online_label }}
+        <a href="{{ section.settings.buy_online_link }}" class="ovo-button header__cta-button">
+          {{ section.settings.buy_online_label | default: "Buy online" }}
         </a>
       {% endif %}
       {% if section.settings.find_near_you_link != blank %}
-        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost" style="display: none;">
-          {{ section.settings.find_near_you_label }}
+        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost header__cta-button">
+          {{ section.settings.find_near_you_label | default: "Find near you" }}
         </a>
       {% endif %}
       
@@ -70,10 +70,12 @@
     .header__nav { display: flex !important; }
     .header__mobile-nav { display: none !important; }
     .header__menu-toggle { display: none !important; }
-    .ovo-header .ovo-button { display: inline-flex !important; }
+    .header__cta-button { display: inline-flex !important; }
   }
   
   @media (max-width: 767px) {
+    .header__nav { display: none !important; }
+    .header__cta-button { display: none !important; }
     .header__menu-toggle { display: block !important; }
   }
 </style>
