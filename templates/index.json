@@ -15,15 +15,34 @@
     },
     "hero": {
       "type": "hero-banner",
-      "settings": {}
+      "blocks": {
+        "cta_button_mhtCnp": {
+          "type": "cta_button",
+          "settings": {
+            "label": "BUY ONLINE",
+            "link": "",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "cta_button_mhtCnp"
+      ],
+      "settings": {
+        "kicker": "Award-winning, ultra-premium, gluten-free vodka.",
+        "heading": "The official vodka",
+        "heading_sub": "of cleaner oceans",
+        "body": "",
+        "background_video": "shopify://files/videos/videoplayback.mp4"
+      }
     },
     "hero_ctas": {
       "type": "hero-ctas",
-      "settings": {},
       "blocks": {
         "cta_1": {
           "type": "cta",
           "settings": {
+            "kicker": "",
             "heading": "Buy online",
             "description": "Order online for delivery via courier to 45 States",
             "link": "/product/ovo-vodka",
@@ -33,6 +52,7 @@
         "cta_2": {
           "type": "cta",
           "settings": {
+            "kicker": "",
             "heading": "Find us locally",
             "description": "Check out our interactive map to see bars and liquor stores",
             "link": "/map",
@@ -42,6 +62,7 @@
         "cta_3": {
           "type": "cta",
           "settings": {
+            "kicker": "",
             "heading": "Local delivery",
             "description": "Order from your sofa for delivery within the hour",
             "link": "https://www.ubereats.com/product/b/de707b63-70cd-50d5-bbe8-4250cbd04acc",
@@ -53,31 +74,69 @@
         "cta_1",
         "cta_2",
         "cta_3"
-      ]
+      ],
+      "settings": {}
     },
     "story": {
       "type": "text-with-media",
-      "settings": {}
+      "settings": {
+        "cream_background": false,
+        "kicker": "",
+        "heading": "Oceans without plastics",
+        "body": "",
+        "cta_label": "",
+        "cta_link": ""
+      }
     },
     "impact": {
       "type": "sustainability-kpis",
-      "settings": {}
+      "settings": {
+        "kicker": "Every bottle makes a difference",
+        "heading": "Your cocktails fund real ocean clean up",
+        "body": ""
+      }
     },
     "cocktails": {
       "type": "cocktails-teaser-grid",
-      "settings": {}
+      "settings": {
+        "kicker": "Signature cocktails",
+        "heading": "Try OVO in these clean classics",
+        "view_all_link": "",
+        "view_all_label": "View all cocktails"
+      }
     },
     "partnership": {
       "type": "partnership",
-      "settings": {}
+      "settings": {
+        "kicker": "In proud partnership with",
+        "heading": "",
+        "partner_name": "",
+        "description": "",
+        "link": "",
+        "link_label": "Learn more"
+      }
     },
     "blog": {
       "type": "blog-teaser-grid",
-      "settings": {}
+      "settings": {
+        "blog": "",
+        "kicker": "From the blog",
+        "heading": "Latest from OVO",
+        "article_count": 3,
+        "view_all_link": "",
+        "view_all_label": "View all news"
+      }
     },
     "store_locator": {
       "type": "store-locator",
-      "settings": {}
+      "settings": {
+        "kicker": "Find OVO near you",
+        "heading": "Cocktails without compromise are closer than you think",
+        "body": "",
+        "embed_code": "",
+        "uber_eats_link": "",
+        "uber_eats_label": "Order local delivery"
+      }
     }
   },
   "order": [
