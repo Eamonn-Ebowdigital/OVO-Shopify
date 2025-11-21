@@ -58,12 +58,12 @@
       {% endif %}
 
       {% if section.settings.buy_online_link != blank %}
-        <a href="{{ section.settings.buy_online_link }}" class="ovo-button header__cta-button">
+        <a href="{{ section.settings.buy_online_link }}" class="ovo-button header__cta-button" style="font-family: var(--heading-font-family, 'Josefin Sans', sans-serif);">
           {{ section.settings.buy_online_label | default: "Buy online" }}
         </a>
       {% endif %}
       {% if section.settings.find_near_you_link != blank %}
-        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost header__cta-button">
+        <a href="{{ section.settings.find_near_you_link }}" class="ovo-button ovo-button--ghost header__cta-button" style="font-family: var(--heading-font-family, 'Josefin Sans', sans-serif); border-color: var(--ovo-text); color: var(--ovo-text);">
           {{ section.settings.find_near_you_label | default: "Find near you" }}
         </a>
       {% endif %}

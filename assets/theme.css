@@ -105,6 +105,11 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
 }
 
+.ovo-header .ovo-button--ghost {
+  border-color: var(--ovo-text);
+  color: var(--ovo-text);
+}
+
 .ovo-button + .ovo-button {
   margin-left: 0.75rem;
 }
