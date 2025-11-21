@@ -8,6 +8,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <style>
+      {% if settings.heading_font %}
+        :root {
+          --heading-font-family: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+        }
+      {% else %}
+        :root {
+          --heading-font-family: 'Josefin Sans', sans-serif;
+        }
+      {% endif %}
+      
+      {% if settings.body_font %}
+        :root {
+          --body-font-family: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+        }
+      {% else %}
+        :root {
+          --body-font-family: 'Playfair Display', Georgia, serif;
+        }
+      {% endif %}
+      
+      body, .ovo-body {
+        font-family: var(--body-font-family);
+      }
+      
+      h1, h2, h3, h4, h5, h6, .ovo-heading-xl, .ovo-heading-lg, .ovo-heading-sm, .ovo-heading-sub {
+        font-family: var(--heading-font-family);
+      }
+    </style>
     {{ 'theme.js' | asset_url | script_tag }}
     {{ content_for_header }}
   </head>
